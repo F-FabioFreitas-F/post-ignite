@@ -27,9 +27,9 @@ export function Commment() {
             </button>
           </header>
 
-          <p>{props.content}</p>
+          <p>Seja Bem Vindo</p>
         </div>
-        <footer><button><ThumbsUp /> Aplaudir <span>{likeCount}</span></button></footer>
+        <footer><button><ThumbsUp /> Aplaudir <span>123</span></button></footer>
       </div>
     </div>
   )
