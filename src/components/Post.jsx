@@ -17,12 +17,12 @@ export function Post({ author, publishedAt, content }) {
           </div>
         </div>
 
-        <time
+        {/* <time
           title={publishedDateFormatted}
           dateTime={publishedAt.toISOString()}
         >
           {publishedDateRelativeToNow}
-        </time>
+        </time> */}
       </header>
       <div className={styles.content}>
 
@@ -45,6 +45,8 @@ export function Post({ author, publishedAt, content }) {
         <textarea
           placeholder='Deixe um comentário...'
           name="comment"
+          
+          
           required
         />
 
@@ -54,11 +56,7 @@ export function Post({ author, publishedAt, content }) {
       </form>
 
       <div className={styles.commentList}>
-        {comments.map(comment => <Commment
-          key={comment}
-          content={comment}
-          onDeleteComment={deleteComment}
-        />)}
+        <Commment/>
       </div>
 
     </article>
