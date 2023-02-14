@@ -6,6 +6,31 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { useState } from 'react';
 
 export function Post({ author, publishedAt, content }) {
+
+  const [comment, setComment] = useState([
+    'Olá tudo bem com vocês?'
+  ]);
+
+  const [newComment, setNewComment] = useState('');
+
+  function deleteComment(commentToDelete){
+    const commentWithoutDeletedOne = comment.filter(comment => {
+      return comment !== commentToDelete;
+    })
+    setComment(commentWithoutDeletedOne)
+  }
+
+  function handleCreateNewComment() {
+    event.preventDefault();
+    setComment([...comment, newComment]);
+    setNewComment("");
+  }
+
+  function handleNewCommentChange(){
+    setNewComment(event.target.value)
+  }
+
+
   return (
     <article className={styles.post}>
       <header>
@@ -39,14 +64,15 @@ export function Post({ author, publishedAt, content }) {
 
       <form
         className={styles.commentForm}
+        onSubmit = {handleCreateNewComment}
       >
         <strong>Deixe seu feedback</strong>
 
         <textarea
           placeholder='Deixe um comentário...'
           name="comment"
-          
-          
+          onChange = {handleNewCommentChange}
+          value = {newComment}
           required
         />
 
@@ -56,7 +82,16 @@ export function Post({ author, publishedAt, content }) {
       </form>
 
       <div className={styles.commentList}>
-        <Commment/>
+        {
+          comment.map(value=>{
+            return (<Commment 
+              key = {value}
+              comment = {value}
+              onDeleteComment = {deleteComment}
+            />)
+          })
+        }
+       
       </div>
 
     </article>

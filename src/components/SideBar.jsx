@@ -10,10 +10,10 @@ export function SideBar() {
         src="https://images.unsplash.com/photo-1537884944318-390069bb8665?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
       />
       <div className={styles.profile}>
-        <Avatar hasBorder src="https://github.com/codewithmiguel.png" />
+        <Avatar hasBorder src="https://github.com/F-FabioFreitas-F.png" />
 
-        <strong>Pedro Miguel</strong>
-        <span>Desenvolvedor Frontend</span>
+        <strong>Fábio Freitas</strong>
+        <span>Software Developer</span>
       </div>
       <footer>
         <a>

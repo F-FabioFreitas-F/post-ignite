@@ -9,9 +9,9 @@ const posts = [
   {
     id: 1,
     author: {
-      avatarUrl: 'https://github.com/pedro-demeu.png',
-      name: "Pedro Miguel",
-      role: "Desenvolvedor Frontend"
+      avatarUrl: 'https://github.com/F-FabioFreitas-F.png',
+      name: "Fábio Freitas",
+      role: "Software Developer"
     },
     content: [
       { type: 'paragraph', content: 'Fala galeraa 👋' },
@@ -36,8 +36,6 @@ const posts = [
     publishedAt: new Date('2022-06-13 20:44:00'),
   },
 ]
-
-// iteração
 
 function App() {
 
