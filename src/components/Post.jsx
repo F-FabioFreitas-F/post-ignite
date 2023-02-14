@@ -13,6 +13,18 @@ export function Post({ author, publishedAt, content }) {
 
   const [newComment, setNewComment] = useState('');
 
+  const isNewCommentEmpty = newComment.length === 0;
+
+  const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+    locale: ptBR
+  })
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true
+  });
+  
+
   function deleteComment(commentToDelete){
     const commentWithoutDeletedOne = comment.filter(comment => {
       return comment !== commentToDelete;
@@ -27,6 +39,7 @@ export function Post({ author, publishedAt, content }) {
   }
 
   function handleNewCommentChange(){
+    event.target.setCustomValidity('');
     setNewComment(event.target.value)
   }
 
@@ -42,12 +55,12 @@ export function Post({ author, publishedAt, content }) {
           </div>
         </div>
 
-        {/* <time
+         <time
           title={publishedDateFormatted}
           dateTime={publishedAt.toISOString()}
         >
           {publishedDateRelativeToNow}
-        </time> */}
+        </time> 
       </header>
       <div className={styles.content}>
 
@@ -77,7 +90,7 @@ export function Post({ author, publishedAt, content }) {
         />
 
         <footer>
-          <button type='submit'>Publicar</button>
+          <button disabled = {isNewCommentEmpty} type='submit'>Publicar</button>
         </footer>
       </form>
 
