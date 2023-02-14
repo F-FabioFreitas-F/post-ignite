@@ -5,8 +5,14 @@ import { Avatar } from './Avatar';
 
 export function Commment({comment , onDeleteComment}) {
 
+  const [likeCount, setLikeCount] = useState(0);
+
   function handleDeleteComment() {
     onDeleteComment(comment);
+  }
+
+  function handleLikeComment(){
+    setLikeCount((state) => state+1)
   }
 
   return (
@@ -35,7 +41,7 @@ export function Commment({comment , onDeleteComment}) {
 
           <p>{comment}</p>
         </div>
-        <footer><button><ThumbsUp /> Aplaudir <span>123</span></button></footer>
+        <footer><button onClick={handleLikeComment}><ThumbsUp/> Aplaudir <span>{likeCount}</span></button></footer>
       </div>
     </div>
   )
